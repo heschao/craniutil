@@ -13,6 +13,7 @@ class TestDb(unittest.TestCase, metaclass=ABCMeta):
     Parent class for all that needs unittest postgresql and the modesl
     """
     postgresql = None
+    session = None
 
     @classmethod
     @abstractmethod
