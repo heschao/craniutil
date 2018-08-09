@@ -1,0 +1,20 @@
+# Run the code from mounted code volume; inproduction this will be from installed package
+# Run as non-root user cranacho; this will be same as in production
+# Run on port 8080 because we're not root
+#
+# You must have the volumes already there.
+version: '2'
+services:
+  craniutil-console:
+    image: cranient/craniutil
+    user: craniuser
+    working_dir: /home/craniuser/craniutil-project
+    volumes:
+     - ../:/home/craniuser/craniutil-project
+
+    environment:
+     - PYTHONPATH=/home/craniuser/craniutil-project
+    container_name: craniutil-container
+    stdin_open: true
+    tty: true    
+    
